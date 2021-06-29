@@ -22,9 +22,9 @@ try:
     # fileNameInput = str(fileNameInput)
 
     # Set variable for the filename to make changing easier later on
-    fileName = "".join((SoniaThinking, '.csv'))
-    outputFileName = "".join((SoniaThinking, 'Output.csv'))
-    graphFileName = "".join((SoniaThinking,'Output.jpg'))
+    fileName = "".join(('SoniaThinking', '.csv'))
+    outputFileName = "".join(('SoniaThinking', 'Output.csv'))
+    graphFileName = "".join(('SoniaThinking','Output.jpg'))
 
     # Make the DataFrame, read the .CSV, and skip the header and information rows
     df = pd.read_csv(fileName, skiprows = 5, header = None)
@@ -35,14 +35,15 @@ try:
     df.columns = ['Channel1', 'Timestamp']
 
     # Convert the formatted timestamp to UNIX
+    print('Converting Timestamps!')
     for i in range(0, len(df)):
         formattedDate = df.iloc[i, 1]
         unixDate = datetime.strptime(formattedDate, ' %Y-%m-%d %H:%M:%S.%f').strftime("%s.%f")[:-3]
         df.iat[i, 1] = unixDate
 
     # Clean the data with a Simple Moving Average (SMA)
-    df['SMA_3'] = df.iloc[:,1].rolling(window=3).mean()
-    df['SMA_10'] = df.iloc[:,1].rolling(window=10).mean()
+    print('Cleaning Data!')
+    df['SMA_100'] = df.iloc[:,1].rolling(window=100).mean()
     
 
     # Convert DataFrame to a .CSV
@@ -51,15 +52,11 @@ try:
 
     # Graph the data
     print('Now Graphing Data!')
-    # x = df.Timestamp
-    # y = df.Channel1
-    # plt.scatter(x,y)
-    plt.grid(True)
-    plt.plot(df['SMA_3'],label='SMA 3 Months')
-    plt.plot(df['SMA_10'],label='SMA 4 Months')
-    plt.legend(loc=2)
+    x = df.Timestamp
+    y = df.SMA_100
+    plt.scatter(x,y)
     
-    
+    # Save and Show the Graph
     plt.savefig(graphFileName)
     plt.show()
 
