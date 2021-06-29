@@ -77,3 +77,4 @@ except (KeyboardInterrupt, SystemExit):
 # -change type of graph to be a line graph
 # -need to label them
 # -will need to change all the variables for the timestamp column
+# -may want to do graphs for each one too since there are LARGE differences in what we see
