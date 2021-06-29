@@ -4,8 +4,8 @@
 
 # If you are getting a message in the terminal 
 # about matplotlib and its cache, uncomment the next two lines
-#import os
-#os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
+import os
+os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
 
 # Import the libraries that we need
 import pandas as pd
@@ -43,7 +43,7 @@ try:
 
     # Clean the data with a Simple Moving Average (SMA)
     print('Cleaning Data!')
-    df['SMA_100'] = df.iloc[:,1].rolling(window=100).mean()
+    df['SMA_100'] = df.iloc[:,0].rolling(window=100).mean()
     
 
     # Convert DataFrame to a .CSV
@@ -57,7 +57,8 @@ try:
     plt.scatter(x,y)
     
     # Save and Show the Graph
-    plt.savefig(graphFileName)
+    plt.savefig(graphFileName, dpi=1600)
+    print('Graph .JPG saved!')
     plt.show()
 
 # Graceful exit
