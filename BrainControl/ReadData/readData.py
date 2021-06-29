@@ -50,15 +50,27 @@ try:
 
     # Graph the data
     print('Now Graphing Data!')
+    plt.xlabel('UNIX Timestamp')
+    plt.ylabel('Reading from Channel')
+    
     x = df.Timestamp
     y = df.SMA_100
     plt.scatter(x,y)
     
     # Save and Show the Graph
     plt.savefig(graphFileName, dpi=1600)
+    print('Graph .JPG Saved!')
     plt.show()
 
 # Graceful exit
 except (KeyboardInterrupt, SystemExit):
     print ("\nExiting.")
     exit
+    
+# # For tomorrow
+# -Add multiple streams of data
+# -Record data and do different tasks, then print items
+# -Add one channel at a time
+# -Figure out cleaning the data and if you need to do the SMA_100 for each channel or need seperate one for each
+# -change type of graph to be a line graph
+# -need to label them
