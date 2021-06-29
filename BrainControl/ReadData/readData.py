@@ -6,17 +6,13 @@
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 from datetime import datetime
-
-
-
-
 
 
 # Set variable for the filename to make changing easier later on
 fileName = 'SoniaThinking.csv'
 outputFileName = "".join(('SoniaThinking', 'Output.csv'))
+graphFileName = "".join(('SoniaThinking','Output.jpg'))
 
 # Make the DataFrame, read the .CSV, and skip the header and information rows
 df = pd.read_csv(fileName, skiprows = 5, header = None)
@@ -29,7 +25,7 @@ df.columns = ['Channel1', 'Timestamp']
 # Convert the formatted timestamp to UNIX
 for i in range(0, len(df)):
     formattedDate = df.iloc[i, 1]
-    unixDate = datetime.strptime(formattedDate, ' %Y-%m-%d %H:%M:%S.%f').strftime("%s.%f")[:-3}
+    unixDate = datetime.strptime(formattedDate, ' %Y-%m-%d %H:%M:%S.%f').strftime("%s.%f")[:-3]
     df.iat[i, 1] = unixDate
 
 
@@ -37,11 +33,9 @@ for i in range(0, len(df)):
 df.to_csv(outputFileName, index = False)
 
 # Graph the data
-x, y = np.loadtxt(outputFileName, delimiter=',', unpack=True)
-print('File loaded!')
-plt.plot(x,y, label='Loaded from file!')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title('Interesting Graph\nCheck it out')
-plt.legend()
+x = df.Timestamp
+y = df.Channel1
+
+plt.scatter(x,y)
 plt.show()
+plt.savefig(graphFileName)
