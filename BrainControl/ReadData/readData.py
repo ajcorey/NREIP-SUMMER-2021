@@ -9,11 +9,11 @@ import pandas as pd
 
 
 # Make the DataFrame, read the .CSV, and skip the header and information rows
-df = pd.read_csv('SoniaThinking.csv', skiprows=4)
+df = pd.read_csv('SoniaThinking.csv', skiprows=5)
 
 
 # Delete unnecessary columns
-df = df.drop(columns=df.columns[0, 1]) # Delete the "Sample Index" columns
+df.drop(df.columns[[0,21], axis=1) # Delete the "Sample Index" columns
 
 
 # Convert DataFrame to a .CSV
