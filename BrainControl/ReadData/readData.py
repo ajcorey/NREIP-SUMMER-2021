@@ -10,7 +10,6 @@
 # Import the libraries that we need
 import pandas as pd
 from datetime import datetime
-import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -29,7 +28,6 @@ try:
     # Make the DataFrame, read the .CSV, and skip the header and information rows
     df = pd.read_csv(fileName, skiprows = 5, header = None)
 
-
     # Delete unnecessary columns and rename the remaining ones
     df = df.drop(df.columns[[0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]], axis=1)
     df.columns = ['Channel1', 'Timestamp']
@@ -43,7 +41,7 @@ try:
 
     # Clean the data with a Simple Moving Average (SMA)
     print('Cleaning Data!')
-    df['SMA_100'] = df.iloc[:,1].rolling(window=100).mean()
+    df['SMA_100'] = df.iloc[:,0].rolling(window=100).mean()
     
 
     # Convert DataFrame to a .CSV
@@ -57,7 +55,7 @@ try:
     plt.scatter(x,y)
     
     # Save and Show the Graph
-    plt.savefig(graphFileName)
+    plt.savefig(graphFileName, dpi=1600)
     plt.show()
 
 # Graceful exit
