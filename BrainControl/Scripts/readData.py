@@ -119,13 +119,6 @@ try:
     print('Channel 2 Data Graph Saved as PDF!')
     plt.clf()
     
-    ## Channel 2 Plot and Save
-    plt.title('Channel 2 Data')
-    plt.plot(x, y2)
-    plt.savefig((pdfFilename + '_Channel_2.pdf'), dpi=600)
-    print('Channel 2 Data Graph Saved as PDF!')
-    plt.clf()
-
     ## Channel 3 Plot and Save
     plt.title('Channel 3 Data')
     plt.plot(x, y3)
