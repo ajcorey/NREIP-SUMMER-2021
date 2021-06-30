@@ -42,7 +42,7 @@ try:
         unixDate = datetime.strptime(formattedDate, ' %Y-%m-%d %H:%M:%S.%f').strftime("%s.%f")[:-3]
         df.iat[i, 16] = unixDate
 
-    # Clean the data with a Simple Moving Average (SMA)
+    # Clean the data with a Simple Moving Average (SMA) with a window of 100
     print('Cleaning Data!')
     df['SMA_100_1'] = df.iloc[:,0].rolling(window=100).mean()
     df['SMA_100_2'] = df.iloc[:,1].rolling(window=100).mean()
@@ -72,7 +72,6 @@ try:
     # fig, axes = plt.subplots(2, 2, sharex = 'col', sharey = 'row')
     f1 = plt.figure()
 
-    
     ## Sets up variables for plotting
     x = df.Timestamp
     y1 = df.SMA_100_1
