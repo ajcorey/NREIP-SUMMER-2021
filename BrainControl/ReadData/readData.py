@@ -2,27 +2,30 @@
 # June 29, 2021
 # amsullivan2@wpi.edu
 
-# The next two lines are for if you are getting a message in the terminal
-# about matplotlib and its cache, comment out the next two lines if needed
-import os
-os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
+
 
 # Import the libraries that we need
+import os
 import pandas as pd
 from datetime import datetime
+## The next line is for if you are getting a message in the terminal
+## about matplotlib and its cache, comment out the next line if needed
+os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
 import matplotlib.pyplot as plt
 
+filePath = os.path.abspath(__file__)
 
 # Try loop that allows for a graceful exit if needed
 try:
 
     # Set variable for the filename to make changing easier later on
-    fileName = "".join(('SoniaThinking', '.csv'))
-    outputFileName = "".join(('SoniaThinking', 'Output.csv'))
-    graphFileName = '/OutputPDFs/SoniaThinking'
+    bciFilename = 'SoniaThinking'
+    csvFilename = "".join((bciFilename, '.csv'))
+    outputCSVFilename = "".join((bciFilename, 'Output.csv'))
+    pdfFilename = filePath + '/OutputPDFs/' + bciFilename
 
     # Make the DataFrame, read the .CSV, and skip the header and information rows
-    df = pd.read_csv(fileName, skiprows = 5, header = None)
+    df = pd.read_csv(csvFilename, skiprows = 5, header = None)
 
     # Delete unnecessary columns and rename the remaining ones
     df = df.drop(df.columns[[0,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]], axis=1)
@@ -55,7 +58,7 @@ try:
     df['SMA_100_16'] = df.iloc[:,15].rolling(window=100).mean()
 
     # Convert DataFrame to a .CSV
-    df.to_csv(outputFileName, index = False)
+    df.to_csv(outputCSVFilename, index = False)
     print('Output .CSV Saved!')
 
     # Graph the data
@@ -106,11 +109,11 @@ try:
   
     plt.title('Channel 1 Data')
     plt.plot(x, y1)
-    plt.savefig((graphFileName + '_Channel_1.pdf'), dpi=600)
+    plt.savefig((pdfFilename + '_Channel_1.pdf'), dpi=600)
     
     plt.title('Channel 2 Data')
     plt.plot(x, y2)
-    plt.savefig((graphFileName + '_Channel_2.pdf'), dpi=600)
+    plt.savefig((pdfFilename + '_Channel_2.pdf'), dpi=600)
     
 
 
@@ -153,7 +156,7 @@ try:
     # axes[3][3].legend()
         
     # Save and Show the Graph
-    #plt.savefig(graphFileName, dpi=600)
+    #plt.savefig(pdfFilename, dpi=600)
     print('Graph .PDF Saved!')
     #plt.show() # Commented out to save time, this takes a LONG time to show the graph of
 
