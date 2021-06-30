@@ -123,29 +123,29 @@ try:
 
     ## Plots the data
     ### Row 1
-    axes[0][0].plot(x, y1,  label = '_nolegend_')
-    axes[0][1].plot(x, y2,  label = '_nolegend_')
-    axes[0][2].plot(x, y3,  label = '_nolegend_')
-    axes[0][3].plot(x, y4,  label = '_nolegend_')
+    axes[0][0].plot(x, y1,  label = '_nolegend_', linewidth = 1, color = '#FF1B8D')
+    axes[0][1].plot(x, y2,  label = '_nolegend_', linewidth = 1, color = '#FFDA00')
+    axes[0][2].plot(x, y3,  label = '_nolegend_', linewidth = 1, color = '#FFDA00')
+    axes[0][3].plot(x, y4,  label = '_nolegend_', linewidth = 1, color = '#1BB3FF')
     ### Row 2
-    axes[1][0].plot(x, y5,  label = '_nolegend_')
-    axes[1][1].plot(x, y6,  label = '_nolegend_')
-    axes[1][2].plot(x, y7,  label = '_nolegend_')
-    axes[1][3].plot(x, y8,  label = '_nolegend_')
+    axes[1][0].plot(x, y5,  label = '_nolegend_', linewidth = 1, color = '#FF1B8D')
+    axes[1][1].plot(x, y6,  label = '_nolegend_', linewidth = 1, color = '#FFDA00')
+    axes[1][2].plot(x, y7,  label = '_nolegend_', linewidth = 1, color = '#FFDA00')
+    axes[1][3].plot(x, y8,  label = '_nolegend_', linewidth = 1, color = '#1BB3FF')
     ### Row 3
-    axes[2][0].plot(x, y9,  label = '_nolegend_')
-    axes[2][1].plot(x, y10, label = '_nolegend_')
-    axes[2][2].plot(x, y11, label = '_nolegend_')
-    axes[2][3].plot(x, y12, label = '_nolegend_')
+    axes[2][0].plot(x, y9,  label = '_nolegend_', linewidth = 1, color = '#FF1B8D')
+    axes[2][1].plot(x, y10, label = '_nolegend_', linewidth = 1, color = '#FFDA00')
+    axes[2][2].plot(x, y11, label = '_nolegend_', linewidth = 1, color = '#FFDA00')
+    axes[2][3].plot(x, y12, label = '_nolegend_', linewidth = 1, color = '#1BB3FF')
     ### Row 4
-    axes[3][0].plot(x, y13, label = '_nolegend_')
-    axes[3][1].plot(x, y14, label = '_nolegend_')
-    axes[3][2].plot(x, y15, label = '_nolegend_')
-    axes[3][3].plot(x, y16, label = '_nolegend_')
+    axes[3][0].plot(x, y13, label = '_nolegend_', linewidth = 1, color = '#FF1B8D')
+    axes[3][1].plot(x, y14, label = '_nolegend_', linewidth = 1, color = '#FFDA00')
+    axes[3][2].plot(x, y15, label = '_nolegend_', linewidth = 1, color = '#FFDA00')
+    axes[3][3].plot(x, y16, label = '_nolegend_', linewidth = 1, color = '#1BB3FF')
 
     # Save and Show the Graph
     plt.setp(axes, xticks=[], yticks=[])
-    plt.savefig((pdfFilename + '_AllChannels.pdf'), dpi = 1200)
+    plt.savefig((pdfFilename + '_AllChannels.pdf'), dpi = 2400)
     print('Graph .PDF Saved!')
     ## Commented out to save time, feel free to uncomment for interactive plot
     #plt.show()
