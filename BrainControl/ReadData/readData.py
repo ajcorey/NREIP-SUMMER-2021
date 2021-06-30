@@ -110,12 +110,19 @@ try:
     # y15 = c15.SMA_100_15
     # y16 = c16.SMA_100_16
 
+    frame1 = plt.gca()
   
     plt.title('Channel 1 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y1)
     plt.savefig((pdfFilename + '_Channel_1.pdf'), dpi=600)
+    plt.clf()
     
     plt.title('Channel 2 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
     plt.plot(x, y2)
     plt.savefig((pdfFilename + '_Channel_2.pdf'), dpi=600)
     
