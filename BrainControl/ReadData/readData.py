@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 
 
 filePath = os.path.dirname(os.path.abspath(__file__))
-os.mkdir(filePath + '/OutputPDFs/')
-filePath = os.path.dirname(os.path.abspath(__file__)) + '/OutputPDFs/'
+os.mkdir(filePath + '/Outputs/')
+filePath = os.path.dirname(os.path.abspath(__file__)) + '/Outputs/'
 
 
 # Try loop that allows for a graceful exit if needed
@@ -24,8 +24,8 @@ try:
 
     # Set variable for the filename to make changing easier later on
     bciFilename = 'SoniaThinking'
-    csvFilename = "".join((bciFilename, '.csv'))
-    outputCSVFilename = "".join((bciFilename, 'Output.csv'))
+    csvFilename = bciFilename + '.csv'
+    outputCSVFilename = filePath + bciFilename + 'Output.csv'
     pdfFilename = filePath + bciFilename
 
     # Make the DataFrame, read the .CSV, and skip the header and information rows
