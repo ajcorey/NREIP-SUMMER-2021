@@ -97,6 +97,8 @@ try:
     # c16 = df[['Timestamp', 'SMA_100_16']]
     
     ## Sets up layout of the plots
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     fig, axes = plt.subplots(2, 2, sharex = 'col', sharey = 'row')
 
     
@@ -108,20 +110,20 @@ try:
     y4 = c4.SMA_100_4
     y5 = c5.SMA_100_5
     y6 = c6.SMA_100_6
-    # y7 = c7.SMA_100_7
-    # y8 = c8.SMA_100_8
-    # y9 = c9.SMA_100_9
-    # y10 = c10.SMA_100_10
-    # y11 = c11.SMA_100_11
-    # y12 = c12.SMA_100_12
-    # y13 = c13.SMA_100_13
-    # y14 = c14.SMA_100_14
-    # y15 = c15.SMA_100_15
-    # y16 = c16.SMA_100_16
+    y7 = c7.SMA_100_7
+    y8 = c8.SMA_100_8
+    y9 = c9.SMA_100_9
+    y10 = c10.SMA_100_10
+    y11 = c11.SMA_100_11
+    y12 = c12.SMA_100_12
+    y13 = c13.SMA_100_13
+    y14 = c14.SMA_100_14
+    y15 = c15.SMA_100_15
+    y16 = c16.SMA_100_16
 
     ## Plots the data    
     ### Row 1
-        frame1 = plt.gca()
+    frame1 = plt.gca()
     frame1.axes.get_xaxis().set_visible(False)
     axes[0][0].plot(x, y1, label='Channel 1')
     axes[0][0].legend()
@@ -129,10 +131,14 @@ try:
     frame1.axes.get_xaxis().set_visible(False)
     axes[0][1].plot(x, y2, label='Channel 2')
     axes[0][1].legend()
-    # axes[0][2].plot(x,y3, label='Channel 3')
-    # axes[0][2].legend()
-    # axes[0][3].plot(x,y4, label='Channel 4')
-    # axes[0][3].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[0][2].plot(x,y3, label='Channel 3')
+    axes[0][2].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[0][3].plot(x,y4, label='Channel 4')
+    axes[0][3].legend()
     ### Row 2
     frame1 = plt.gca()
     frame1.axes.get_xaxis().set_visible(False)
@@ -142,28 +148,48 @@ try:
     frame1.axes.get_xaxis().set_visible(False)
     axes[1][1].plot(x, y6, label='Channel 6')
     axes[1][1].legend()
-    # axes[1][2].plot(x, y7, label='Channel 7')
-    # axes[1][2].legend()
-    # axes[1][3].plot(x, y8, label='Channel 8')
-    # axes[1][3].legend()
-    # ### Row 3
-    # axes[2][0].plot(x, y9, label='Channel 9')
-    # axes[2][0].legend()
-    # axes[2][1].plot(x, y10, label='Channel 10')
-    # axes[2][1].legend()
-    # axes[2][2].plot(x, y11, label='Channel 11')
-    # axes[2][2].legend()
-    # axes[2][3].plot(x, y12, label='Channel 12')
-    # axes[2][3].legend()
-    # ### Row 4
-    # axes[3][0].plot(x, y13, label='Channel 13')
-    # axes[3][0].legend()
-    # axes[3][1].plot(x, y14, label='Channel 14')
-    # axes[3][1].legend()
-    # axes[3][2].plot(x, y15, label='Channel 15')
-    # axes[3][2].legend()
-    # axes[3][3].plot(x, y16, label='Channel 16')
-    # axes[3][3].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[1][2].plot(x, y7, label='Channel 7')
+    axes[1][2].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[1][3].plot(x, y8, label='Channel 8')
+    axes[1][3].legend()
+    ### Row 3
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[2][0].plot(x, y9, label='Channel 9')
+    axes[2][0].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[2][1].plot(x, y10, label='Channel 10')
+    axes[2][1].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[2][2].plot(x, y11, label='Channel 11')
+    axes[2][2].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[2][3].plot(x, y12, label='Channel 12')
+    axes[2][3].legend()
+    ### Row 4
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[3][0].plot(x, y13, label='Channel 13')
+    axes[3][0].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[3][1].plot(x, y14, label='Channel 14')
+    axes[3][1].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[3][2].plot(x, y15, label='Channel 15')
+    axes[3][2].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
+    axes[3][3].plot(x, y16, label='Channel 16')
+    axes[3][3].legend()
         
     # Save and Show the Graph
     plt.savefig((pdfFilename + '_AllChannels.pdf'), dpi = 1200)
