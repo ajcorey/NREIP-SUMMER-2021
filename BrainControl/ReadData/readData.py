@@ -19,7 +19,7 @@ try:
     # Set variable for the filename to make changing easier later on
     fileName = "".join(('SoniaThinking', '.csv'))
     outputFileName = "".join(('SoniaThinking', 'Output.csv'))
-    graphFileName = "".join(('SoniaThinking','Output.pdf'))
+    graphFileName = 'SoniaThinking'
 
     # Make the DataFrame, read the .CSV, and skip the header and information rows
     df = pd.read_csv(fileName, skiprows = 5, header = None)
@@ -80,7 +80,9 @@ try:
     # c16 = df[['Timestamp', 'SMA_100_16']]
     
     ## Sets up layout of the plots
-    fig, axes = plt.subplots(2, 2, sharex = 'col', sharey = 'row')
+    # fig, axes = plt.subplots(2, 2, sharex = 'col', sharey = 'row')
+    f1 = plt.figure()
+
     
     ## Sets up variables for plotting
     x = df.Timestamp
@@ -101,21 +103,34 @@ try:
     # y15 = c15.SMA_100_15
     # y16 = c16.SMA_100_16
 
+    count = 1
+    while count <= 16:
+        count += 1
+        columnTitle = 'Channel {0} Data'.format(count)
+        plt.title(columnTitle)
+        plt.plot(x, yi)
+        plt.savefig(graphFileName, dpi=600)
+        fileSaveName = graphFileName
+        fileSaveName = graphFileName + '_Channel' + str(count) + '.pdf'
+    
+    
+
+
     ## Plots the data    
     ### Row 1
-    axes[0][0].plot(x, y1, label='Channel 1')
-    axes[0][0].legend()
-    axes[0][1].plot(x, y2, label='Channel 2')
-    axes[0][1].legend()
+    # axes[0][0].plot(x, y1, label='Channel 1')
+    # axes[0][0].legend()
+    # axes[0][1].plot(x, y2, label='Channel 2')
+    # axes[0][1].legend()
     # axes[0][2].plot(x,y3, label='Channel 3')
     # axes[0][2].legend()
     # axes[0][3].plot(x,y4, label='Channel 4')
     # axes[0][3].legend()
     ### Row 2    
-    axes[1][0].plot(x, y5, label='Channel 5')
-    axes[1][0].legend()
-    axes[1][1].plot(x, y6, label='Channel 6')
-    axes[1][1].legend()
+    # axes[1][0].plot(x, y5, label='Channel 5')
+    # axes[1][0].legend()
+    # axes[1][1].plot(x, y6, label='Channel 6')
+    # axes[1][1].legend()
     # axes[1][2].plot(x, y7, label='Channel 7')
     # axes[1][2].legend()
     # axes[1][3].plot(x, y8, label='Channel 8')
@@ -140,7 +155,7 @@ try:
     # axes[3][3].legend()
         
     # Save and Show the Graph
-    plt.savefig(graphFileName, dpi=600)
+    #plt.savefig(graphFileName, dpi=600)
     print('Graph .PDF Saved!')
     #plt.show() # Commented out to save time, this takes a LONG time to show the graph of
 
