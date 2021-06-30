@@ -31,21 +31,27 @@ filePath = os.path.dirname(os.path.abspath(__file__)) + '/Outputs/'
 
 # Try loop that allows for a graceful exit if needed
 try:
+    # Ask the user for the file name
+    fileNameInput = input('Please Input the File Name WITHOUT the File Extension: ') # Ask user for mission command
+    
 
     # Set variable for the filename to make changing easier later on
-    bciFilename = 'SoniaThinking'
-    csvFilename = inputFilePath + bciFilename + '.csv'
-    outputCSVFilename = filePath + bciFilename + 'Output.csv'
-    pdfFilename = filePath + bciFilename
+    bciFileName = str(fileNameInput)
+    csvFileName = inputFilePath + bciFileName + '.csv'
+    outputCSVFileName = filePath + bciFileName + 'Output.csv'
+    pdfFileName = filePath + bciFileName
 
+    
     # Make the DataFrame, read the .CSV, and skip the header and information rows
-    df = pd.read_csv(csvFilename, skiprows = 5, header = None)
+    df = pd.read_csv(csvFileName, skiprows = 5, header = None)
 
+    
     # Delete unnecessary columns and rename the remaining ones
     df = df.drop(df.index[17:32], axis = 1)
     df = df.drop(df.columns[[0]], axis = 1)
     df.columns = ['Channel1', 'Channel2', 'Channel3', 'Channel4', 'Channel5', 'Channel6', 'Channel7', 'Channel8', 'Channel9', 'Channel10', 'Channel11', 'Channel12', 'Channel13', 'Channel14', 'Channel15', 'Channel16', 'Timestamp']
 
+    
     # Convert the formatted timestamp to UNIX
     print('Converting Timestamps!')
     for i in range(0, len(df)):
@@ -53,6 +59,7 @@ try:
         unixDate = datetime.strptime(formattedDate, ' %Y-%m-%d %H:%M:%S.%f').strftime("%s.%f")[:-3]
         df.iat[i, 16] = unixDate
 
+    
     # Clean the data with a Simple Moving Average (SMA) with a window of 100
     print('Cleaning Data!')
     df['SMA_100_1'] = df.iloc[:,0].rolling(window=100).mean()
@@ -72,10 +79,12 @@ try:
     df['SMA_100_15'] = df.iloc[:,14].rolling(window=100).mean()
     df['SMA_100_16'] = df.iloc[:,15].rolling(window=100).mean()
 
+    
     # Convert DataFrame to a .CSV
-    df.to_csv(outputCSVFilename, index = False)
+    df.to_csv(outputCSVFileName, index = False)
     print('Output .CSV Saved!')
 
+    
     # Graph the data
     print('Now Graphing Data!')
 
@@ -101,7 +110,6 @@ try:
     fig, axes = plt.subplots(4, 4)
     fig.suptitle('Data from All 16 Channels Displayed Left to Right')
 
-
     ## Sets up variables for plotting
     x = df.Timestamp
     y1 = c1.SMA_100_1
@@ -123,29 +131,30 @@ try:
 
     ## Plots the data
     ### Row 1
-    axes[0][0].plot(x, y1,  label = '_nolegend_', linewidth = 1, color = '#FF1B8D')
-    axes[0][1].plot(x, y2,  label = '_nolegend_', linewidth = 1, color = '#FFDA00')
-    axes[0][2].plot(x, y3,  label = '_nolegend_', linewidth = 1, color = '#FFDA00')
-    axes[0][3].plot(x, y4,  label = '_nolegend_', linewidth = 1, color = '#1BB3FF')
+    axes[0][0].plot(x, y1,  label = '_nolegend_', linewidth = 0.5, color = '#FF1B8D')
+    axes[0][1].plot(x, y2,  label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
+    axes[0][2].plot(x, y3,  label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
+    axes[0][3].plot(x, y4,  label = '_nolegend_', linewidth = 0.5, color = '#1BB3FF')
     ### Row 2
-    axes[1][0].plot(x, y5,  label = '_nolegend_', linewidth = 1, color = '#FF1B8D')
-    axes[1][1].plot(x, y6,  label = '_nolegend_', linewidth = 1, color = '#FFDA00')
-    axes[1][2].plot(x, y7,  label = '_nolegend_', linewidth = 1, color = '#FFDA00')
-    axes[1][3].plot(x, y8,  label = '_nolegend_', linewidth = 1, color = '#1BB3FF')
+    axes[1][0].plot(x, y5,  label = '_nolegend_', linewidth = 0.5, color = '#FF1B8D')
+    axes[1][1].plot(x, y6,  label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
+    axes[1][2].plot(x, y7,  label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
+    axes[1][3].plot(x, y8,  label = '_nolegend_', linewidth = 0.5, color = '#1BB3FF')
     ### Row 3
-    axes[2][0].plot(x, y9,  label = '_nolegend_', linewidth = 1, color = '#FF1B8D')
-    axes[2][1].plot(x, y10, label = '_nolegend_', linewidth = 1, color = '#FFDA00')
-    axes[2][2].plot(x, y11, label = '_nolegend_', linewidth = 1, color = '#FFDA00')
-    axes[2][3].plot(x, y12, label = '_nolegend_', linewidth = 1, color = '#1BB3FF')
+    axes[2][0].plot(x, y9,  label = '_nolegend_', linewidth = 0.5, color = '#FF1B8D')
+    axes[2][1].plot(x, y10, label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
+    axes[2][2].plot(x, y11, label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
+    axes[2][3].plot(x, y12, label = '_nolegend_', linewidth = 0.5, color = '#1BB3FF')
     ### Row 4
-    axes[3][0].plot(x, y13, label = '_nolegend_', linewidth = 1, color = '#FF1B8D')
-    axes[3][1].plot(x, y14, label = '_nolegend_', linewidth = 1, color = '#FFDA00')
-    axes[3][2].plot(x, y15, label = '_nolegend_', linewidth = 1, color = '#FFDA00')
-    axes[3][3].plot(x, y16, label = '_nolegend_', linewidth = 1, color = '#1BB3FF')
+    axes[3][0].plot(x, y13, label = '_nolegend_', linewidth = 0.5, color = '#FF1B8D')
+    axes[3][1].plot(x, y14, label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
+    axes[3][2].plot(x, y15, label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
+    axes[3][3].plot(x, y16, label = '_nolegend_', linewidth = 0.5, color = '#1BB3FF')
+
 
     # Save and Show the Graph
     plt.setp(axes, xticks=[], yticks=[])
-    plt.savefig((pdfFilename + '_AllChannels.pdf'), dpi = 2400)
+    plt.savefig((pdfFileName + '_AllChannels.pdf'), dpi = 2400)
     print('Graph .PDF Saved!')
     ## Commented out to save time, feel free to uncomment for interactive plot
     #plt.show()
