@@ -35,7 +35,7 @@ try:
     # Set variable for the filename to make changing easier later on
     bciFilename = 'SoniaThinking'
     csvFilename = inputFilePath + bciFilename + '.csv'
-    outputCSVFilename = filePath + bciFilename + 'AllChannelsOutput.csv'
+    outputCSVFilename = filePath + bciFilename + 'Output.csv'
     pdfFilename = filePath + bciFilename
 
     # Make the DataFrame, read the .CSV, and skip the header and information rows
