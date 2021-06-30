@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 
 filePath = os.path.dirname(os.path.abspath(__file__))
-os.mkdir(filePath + '/Outputs/', exist_ok = True)
+os.makedirs(filePath + '/Outputs/', exist_ok = True)
 filePath = os.path.dirname(os.path.abspath(__file__)) + '/Outputs/'
 
 
@@ -68,24 +68,6 @@ try:
     # Graph the data
     print('Now Graphing Data!')
     
-    ## Sets up groupings for the subplots
-    c1 = df[['Timestamp', 'SMA_100_1']]
-    c2 = df[['Timestamp', 'SMA_100_2']]
-    c3 = df[['Timestamp', 'SMA_100_3']]
-    c4 = df[['Timestamp', 'SMA_100_4']]
-    c5 = df[['Timestamp', 'SMA_100_5']]
-    c6 = df[['Timestamp', 'SMA_100_6']]
-    # c7 = df[['Timestamp', 'SMA_100_7']]
-    # c8 = df[['Timestamp', 'SMA_100_8']]
-    # c9 = df[['Timestamp', 'SMA_100_9']]
-    # c10 = df[['Timestamp', 'SMA_100_10']]
-    # c11 = df[['Timestamp', 'SMA_100_11']]
-    # c12 = df[['Timestamp', 'SMA_100_12']]
-    # c13 = df[['Timestamp', 'SMA_100_13']]
-    # c14 = df[['Timestamp', 'SMA_100_14']]
-    # c15 = df[['Timestamp', 'SMA_100_15']]
-    # c16 = df[['Timestamp', 'SMA_100_16']]
-    
     ## Sets up layout of the plots
     # fig, axes = plt.subplots(2, 2, sharex = 'col', sharey = 'row')
     f1 = plt.figure()
@@ -93,22 +75,22 @@ try:
     
     ## Sets up variables for plotting
     x = df.Timestamp
-    y1 = c1.SMA_100_1
-    y2 = c2.SMA_100_2
-    y3 = c3.SMA_100_3
-    y4 = c4.SMA_100_4
-    y5 = c5.SMA_100_5
-    y6 = c6.SMA_100_6
-    # y7 = c7.SMA_100_7
-    # y8 = c8.SMA_100_8
-    # y9 = c9.SMA_100_9
-    # y10 = c10.SMA_100_10
-    # y11 = c11.SMA_100_11
-    # y12 = c12.SMA_100_12
-    # y13 = c13.SMA_100_13
-    # y14 = c14.SMA_100_14
-    # y15 = c15.SMA_100_15
-    # y16 = c16.SMA_100_16
+    y1 = df.SMA_100_1
+    y2 = df.SMA_100_2
+    y3 = df.SMA_100_3
+    y4 = df.SMA_100_4
+    y5 = df.SMA_100_5
+    y6 = df.SMA_100_6
+    y7 = df.SMA_100_7
+    y8 = df.SMA_100_8
+    y9 = df.SMA_100_9
+    y10 = df.SMA_100_10
+    y11 = df.SMA_100_11
+    y12 = df.SMA_100_12
+    y13 = df.SMA_100_13
+    y14 = df.SMA_100_14
+    y15 = df.SMA_100_15
+    y16 = df.SMA_100_16
     frame1 = plt.gca()
  
     # Plot the data, save the data as a PDF, clear the plot, and
