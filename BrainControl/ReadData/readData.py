@@ -109,69 +109,171 @@ try:
     # y14 = c14.SMA_100_14
     # y15 = c15.SMA_100_15
     # y16 = c16.SMA_100_16
-
     frame1 = plt.gca()
-  
+ 
+    # Plot the data, save the data as a PDF, clear the plot, and
+    # start again and run one channel at a time.
+    
+    ## Channel 1 Plot and Save
     plt.title('Channel 1 Data')
     plt.xlabel('Time')
     plt.ylabel('Electrode Readings')
     frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y1)
     plt.savefig((pdfFilename + '_Channel_1.pdf'), dpi=600)
+    print('Channel 1 Data Graph Saved as PDF!')
     plt.clf()
     
+    ## Channel 2 Plot and Save
     plt.title('Channel 2 Data')
     plt.xlabel('Time')
     plt.ylabel('Electrode Readings')
     plt.plot(x, y2)
     plt.savefig((pdfFilename + '_Channel_2.pdf'), dpi=600)
+    print('Channel 2 Data Graph Saved as PDF!')
+    plt.clf()
     
+    ## Channel 2 Plot and Save
+    plt.title('Channel 2 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y2)
+    plt.savefig((pdfFilename + '_Channel_2.pdf'), dpi=600)
+    print('Channel 2 Data Graph Saved as PDF!')
+    plt.clf()
 
+    ## Channel 3 Plot and Save
+    plt.title('Channel 3 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y3)
+    plt.savefig((pdfFilename + '_Channel_3.pdf'), dpi=600)
+    print('Channel 3 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 4 Plot and Save
+    plt.title('Channel 4 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y4)
+    plt.savefig((pdfFilename + '_Channel_4.pdf'), dpi=600)
+    print('Channel 4 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 5 Plot and Save
+    plt.title('Channel 5 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y5)
+    plt.savefig((pdfFilename + '_Channel_5.pdf'), dpi=600)
+    print('Channel 5 Data Graph Saved as PDF!')
+    plt.clf()
 
-    ## Plots the data    
-    ### Row 1
-    # axes[0][0].plot(x, y1, label='Channel 1')
-    # axes[0][0].legend()
-    # axes[0][1].plot(x, y2, label='Channel 2')
-    # axes[0][1].legend()
-    # axes[0][2].plot(x,y3, label='Channel 3')
-    # axes[0][2].legend()
-    # axes[0][3].plot(x,y4, label='Channel 4')
-    # axes[0][3].legend()
-    ### Row 2    
-    # axes[1][0].plot(x, y5, label='Channel 5')
-    # axes[1][0].legend()
-    # axes[1][1].plot(x, y6, label='Channel 6')
-    # axes[1][1].legend()
-    # axes[1][2].plot(x, y7, label='Channel 7')
-    # axes[1][2].legend()
-    # axes[1][3].plot(x, y8, label='Channel 8')
-    # axes[1][3].legend()
-    # ### Row 3
-    # axes[2][0].plot(x, y9, label='Channel 9')
-    # axes[2][0].legend()
-    # axes[2][1].plot(x, y10, label='Channel 10')
-    # axes[2][1].legend()
-    # axes[2][2].plot(x, y11, label='Channel 11')
-    # axes[2][2].legend()
-    # axes[2][3].plot(x, y12, label='Channel 12')
-    # axes[2][3].legend()
-    # ### Row 4
-    # axes[3][0].plot(x, y13, label='Channel 13')
-    # axes[3][0].legend()
-    # axes[3][1].plot(x, y14, label='Channel 14')
-    # axes[3][1].legend()
-    # axes[3][2].plot(x, y15, label='Channel 15')
-    # axes[3][2].legend()
-    # axes[3][3].plot(x, y16, label='Channel 16')
-    # axes[3][3].legend()
-        
-    # Save and Show the Graph
-    #plt.savefig(pdfFilename, dpi=600)
-    print('Graph .PDF Saved!')
-    #plt.show() # Commented out to save time, this takes a LONG time to show the graph of
+    ## Channel 6 Plot and Save
+    plt.title('Channel 6 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y6)
+    plt.savefig((pdfFilename + '_Channel_6.pdf'), dpi=600)
+    print('Channel 6 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 7 Plot and Save
+    plt.title('Channel 7 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y7)
+    plt.savefig((pdfFilename + '_Channel_7.pdf'), dpi=700)
+    print('Channel 7 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 8 Plot and Save
+    plt.title('Channel 8 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y8)
+    plt.savefig((pdfFilename + '_Channel_8.pdf'), dpi=800)
+    print('Channel 8 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 9 Plot and Save
+    plt.title('Channel 9 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y9)
+    plt.savefig((pdfFilename + '_Channel_9.pdf'), dpi=900)
+    print('Channel 9 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 10 Plot and Save
+    plt.title('Channel 10 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y10)
+    plt.savefig((pdfFilename + '_Channel_10.pdf'), dpi=1000)
+    print('Channel 10 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 11 Plot and Save
+    plt.title('Channel 11 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y11)
+    plt.savefig((pdfFilename + '_Channel_11.pdf'), dpi=1100)
+    print('Channel 11 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 12 Plot and Save
+    plt.title('Channel 12 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y12)
+    plt.savefig((pdfFilename + '_Channel_12.pdf'), dpi=1200)
+    print('Channel 12 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 13 Plot and Save
+    plt.title('Channel 13 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y13)
+    plt.savefig((pdfFilename + '_Channel_13.pdf'), dpi=1300)
+    print('Channel 13 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 14 Plot and Save
+    plt.title('Channel 14 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y14)
+    plt.savefig((pdfFilename + '_Channel_14.pdf'), dpi=1400)
+    print('Channel 14 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 15 Plot and Save
+    plt.title('Channel 15 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y15)
+    plt.savefig((pdfFilename + '_Channel_15.pdf'), dpi=1500)
+    print('Channel 15 Data Graph Saved as PDF!')
+    plt.clf()
+    
+    ## Channel 16 Plot and Save
+    plt.title('Channel 16 Data')
+    plt.xlabel('Time')
+    plt.ylabel('Electrode Readings')
+    plt.plot(x, y16)
+    plt.savefig((pdfFilename + '_Channel_16.pdf'), dpi=1600)
+    print('Channel 16 Data Graph Saved as PDF!')
+    print('All Channels Successfully Graphed and Saved as PDFs!')
+    plt.clf()
+
+    ## Commented out to save time, feel free to uncomment for interactive plot
+    # plt.show() 
+
 
 # Graceful exit
 except (KeyboardInterrupt, SystemExit):
-    print ("\nExiting.")
+    print ("Exiting.")
     exit
