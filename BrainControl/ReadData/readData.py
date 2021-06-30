@@ -108,6 +108,7 @@ try:
         count += 1
         columnTitle = 'Channel {0} Data'.format(count)
         plt.title(columnTitle)
+        yi = y + str(i) 
         plt.plot(x, yi)
         plt.savefig(graphFileName, dpi=600)
         fileSaveName = graphFileName
