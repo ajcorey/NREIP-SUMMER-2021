@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 
 filePath = os.path.dirname(os.path.abspath(__file__))
-os.mkdir(filePath + '/Outputs/')
+os.mkdir(filePath + '/Outputs/', exist_ok = True)
 filePath = os.path.dirname(os.path.abspath(__file__)) + '/Outputs/'
 
 
