@@ -98,7 +98,7 @@ try:
     
     ## Sets up layout of the plots
     fig, axes = plt.subplots(4, 4)
-    #plt.title('Data from All 16 Channels')
+    plt.title('Data from All 16 Channels Displayed Left to Right')
 
     
     ## Sets up variables for plotting
@@ -143,7 +143,6 @@ try:
     axes[3][3].plot(x, y16, label = '_nolegend_')
         
     # Save and Show the Graph
-    print('Saving PDF now!')
     plt.setp(axes, xticks=[], yticks=[])
     plt.savefig((pdfFilename + '_AllChannels.pdf'), dpi = 1200)
     print('Graph .PDF Saved!')
