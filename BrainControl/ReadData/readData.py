@@ -19,7 +19,7 @@ try:
     # Set variable for the filename to make changing easier later on
     fileName = "".join(('SoniaThinking', '.csv'))
     outputFileName = "".join(('SoniaThinking', 'Output.csv'))
-    graphFileName = "".join(('SoniaThinking','Output.jpg'))
+    graphFileName = "".join(('SoniaThinking','Output.pdf'))
 
     # Make the DataFrame, read the .CSV, and skip the header and information rows
     df = pd.read_csv(fileName, skiprows = 5, header = None)
@@ -80,7 +80,7 @@ try:
     c16 = df[['Timestamp', 'SMA_100_16']]
     
     ## Sets up layout of the plots
-    fig, axes = plt.subplots(4,4)
+    fig, axes = plt.subplots(2,4, sharex = 'col', sharey = 'row')
     
     ## Sets up variables for plotting
     x = df.Timestamp
@@ -120,24 +120,24 @@ try:
     axes[1][2].legend()
     axes[1][3].plot(x,y4, label='Channel 8')
     axes[1][3].legend()
-    ### Row 3
-    axes[2][0].plot(x,y1, label='Channel 9')
-    axes[2][0].legend()
-    axes[2][1].plot(x,y2, label='Channel 10')
-    axes[2][1].legend()
-    axes[2][2].plot(x,y3, label='Channel 11')
-    axes[2][2].legend()
-    axes[2][3].plot(x,y4, label='Channel 12')
-    axes[2][3].legend()
-    ### Row 4
-    axes[3][0].plot(x,y1, label='Channel 13')
-    axes[3][0].legend()
-    axes[3][1].plot(x,y2, label='Channel 14')
-    axes[3][1].legend()
-    axes[3][2].plot(x,y3, label='Channel 15')
-    axes[3][2].legend()
-    axes[3][3].plot(x,y4, label='Channel 16')
-    axes[3][3].legend()
+    # ### Row 3
+    # axes[2][0].plot(x,y1, label='Channel 9')
+    # axes[2][0].legend()
+    # axes[2][1].plot(x,y2, label='Channel 10')
+    # axes[2][1].legend()
+    # axes[2][2].plot(x,y3, label='Channel 11')
+    # axes[2][2].legend()
+    # axes[2][3].plot(x,y4, label='Channel 12')
+    # axes[2][3].legend()
+    # ### Row 4
+    # axes[3][0].plot(x,y1, label='Channel 13')
+    # axes[3][0].legend()
+    # axes[3][1].plot(x,y2, label='Channel 14')
+    # axes[3][1].legend()
+    # axes[3][2].plot(x,y3, label='Channel 15')
+    # axes[3][2].legend()
+    # axes[3][3].plot(x,y4, label='Channel 16')
+    # axes[3][3].legend()
         
     # Save and Show the Graph
     plt.savefig(graphFileName, dpi=600)
