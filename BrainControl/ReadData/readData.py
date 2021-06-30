@@ -13,7 +13,7 @@ from datetime import datetime
 os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
 import matplotlib.pyplot as plt
 
-filePath = os.path.abspath(__file__)
+filePath = os.path.dirname(os.path.abspath(__file__))
 
 # Try loop that allows for a graceful exit if needed
 try:
