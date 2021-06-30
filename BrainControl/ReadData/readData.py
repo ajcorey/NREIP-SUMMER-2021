@@ -19,7 +19,7 @@ try:
     # Set variable for the filename to make changing easier later on
     fileName = "".join(('SoniaThinking', '.csv'))
     outputFileName = "".join(('SoniaThinking', 'Output.csv'))
-    graphFileName = 'SoniaThinking'
+    graphFileName = '/OutputPDFs/SoniaThinking'
 
     # Make the DataFrame, read the .CSV, and skip the header and information rows
     df = pd.read_csv(fileName, skiprows = 5, header = None)
@@ -103,17 +103,14 @@ try:
     # y15 = c15.SMA_100_15
     # y16 = c16.SMA_100_16
 
-    count = 1
-    while count <= 16:
-        count += 1
-        columnTitle = 'Channel {0} Data'.format(count)
-        plt.title(columnTitle)
-        yi = y + str(i) 
-        plt.plot(x, yi)
-        plt.savefig(graphFileName, dpi=600)
-        fileSaveName = graphFileName
-        fileSaveName = graphFileName + '_Channel' + str(count) + '.pdf'
+  
+    plt.title('Channel 1 Data')
+    plt.plot(x, y1)
+    plt.savefig((graphFileName + '_Channel_1.pdf'), dpi=600)
     
+    plt.title('Channel 2 Data')
+    plt.plot(x, y2)
+    plt.savefig((graphFileName + '_Channel_2.pdf'), dpi=600)
     
 
 
