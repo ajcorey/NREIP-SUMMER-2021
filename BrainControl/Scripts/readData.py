@@ -106,8 +106,8 @@ try:
     
     ## Channel 1 Plot and Save
     plt.title('Channel 1 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y1)
     plt.savefig((pdfFilename + '_Channel_1.pdf'), dpi=600)
     print('Channel 1 Data Graph Saved as PDF!')
@@ -115,8 +115,8 @@ try:
     
     ## Channel 2 Plot and Save
     plt.title('Channel 2 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y2)
     plt.savefig((pdfFilename + '_Channel_2.pdf'), dpi=600)
     print('Channel 2 Data Graph Saved as PDF!')
@@ -124,8 +124,8 @@ try:
     
     ## Channel 3 Plot and Save
     plt.title('Channel 3 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y3)
     plt.savefig((pdfFilename + '_Channel_3.pdf'), dpi=600)
     print('Channel 3 Data Graph Saved as PDF!')
@@ -133,8 +133,8 @@ try:
     
     ## Channel 4 Plot and Save
     plt.title('Channel 4 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y4)
     plt.savefig((pdfFilename + '_Channel_4.pdf'), dpi=600)
     print('Channel 4 Data Graph Saved as PDF!')
@@ -142,8 +142,8 @@ try:
     
     ## Channel 5 Plot and Save
     plt.title('Channel 5 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y5)
     plt.savefig((pdfFilename + '_Channel_5.pdf'), dpi=600)
     print('Channel 5 Data Graph Saved as PDF!')
@@ -151,8 +151,8 @@ try:
 
     ## Channel 6 Plot and Save
     plt.title('Channel 6 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y6)
     plt.savefig((pdfFilename + '_Channel_6.pdf'), dpi=600)
     print('Channel 6 Data Graph Saved as PDF!')
@@ -160,8 +160,8 @@ try:
     
     ## Channel 7 Plot and Save
     plt.title('Channel 7 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y7)
     plt.savefig((pdfFilename + '_Channel_7.pdf'), dpi=700)
     print('Channel 7 Data Graph Saved as PDF!')
@@ -169,8 +169,8 @@ try:
     
     ## Channel 8 Plot and Save
     plt.title('Channel 8 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y8)
     plt.savefig((pdfFilename + '_Channel_8.pdf'), dpi=800)
     print('Channel 8 Data Graph Saved as PDF!')
@@ -178,8 +178,8 @@ try:
     
     ## Channel 9 Plot and Save
     plt.title('Channel 9 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y9)
     plt.savefig((pdfFilename + '_Channel_9.pdf'), dpi=900)
     print('Channel 9 Data Graph Saved as PDF!')
@@ -187,8 +187,8 @@ try:
     
     ## Channel 10 Plot and Save
     plt.title('Channel 10 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y10)
     plt.savefig((pdfFilename + '_Channel_10.pdf'), dpi=1000)
     print('Channel 10 Data Graph Saved as PDF!')
@@ -196,8 +196,8 @@ try:
     
     ## Channel 11 Plot and Save
     plt.title('Channel 11 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y11)
     plt.savefig((pdfFilename + '_Channel_11.pdf'), dpi=1100)
     print('Channel 11 Data Graph Saved as PDF!')
@@ -205,8 +205,8 @@ try:
     
     ## Channel 12 Plot and Save
     plt.title('Channel 12 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y12)
     plt.savefig((pdfFilename + '_Channel_12.pdf'), dpi=1200)
     print('Channel 12 Data Graph Saved as PDF!')
@@ -214,8 +214,8 @@ try:
     
     ## Channel 13 Plot and Save
     plt.title('Channel 13 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y13)
     plt.savefig((pdfFilename + '_Channel_13.pdf'), dpi=1300)
     print('Channel 13 Data Graph Saved as PDF!')
@@ -223,8 +223,8 @@ try:
     
     ## Channel 14 Plot and Save
     plt.title('Channel 14 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y14)
     plt.savefig((pdfFilename + '_Channel_14.pdf'), dpi=1400)
     print('Channel 14 Data Graph Saved as PDF!')
@@ -232,8 +232,8 @@ try:
     
     ## Channel 15 Plot and Save
     plt.title('Channel 15 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y15)
     plt.savefig((pdfFilename + '_Channel_15.pdf'), dpi=1500)
     print('Channel 15 Data Graph Saved as PDF!')
@@ -241,8 +241,8 @@ try:
     
     ## Channel 16 Plot and Save
     plt.title('Channel 16 Data')
-    frame1.axes.get_xaxis().set_visible(False)
     frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     plt.plot(x, y16)
     plt.savefig((pdfFilename + '_Channel_16.pdf'), dpi=1600)
     print('Channel 16 Data Graph Saved as PDF!')
