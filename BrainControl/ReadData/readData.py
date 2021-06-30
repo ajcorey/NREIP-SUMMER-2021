@@ -85,21 +85,21 @@ try:
     ## Sets up variables for plotting
     x = df.Timestamp
     y1 = c1.SMA_100_1
-    y1 = c2.SMA_100_2
-    y1 = c3.SMA_100_3
-    y1 = c4.SMA_100_4
-    y1 = c5.SMA_100_5
-    y1 = c6.SMA_100_6
-    y1 = c7.SMA_100_7
-    y1 = c8.SMA_100_8
-    y1 = c9.SMA_100_9
-    y1 = c10.SMA_100_10
-    y1 = c11.SMA_100_11
-    y1 = c12.SMA_100_12
-    y1 = c13.SMA_100_13
-    y1 = c14.SMA_100_14
-    y1 = c15.SMA_100_15
-    y1 = c16.SMA_100_16
+    y2 = c2.SMA_100_2
+    y3 = c3.SMA_100_3
+    y4 = c4.SMA_100_4
+    y5 = c5.SMA_100_5
+    y6 = c6.SMA_100_6
+    y7 = c7.SMA_100_7
+    y8 = c8.SMA_100_8
+    y9 = c9.SMA_100_9
+    y10 = c10.SMA_100_10
+    y11 = c11.SMA_100_11
+    y12 = c12.SMA_100_12
+    y13 = c13.SMA_100_13
+    y14 = c14.SMA_100_14
+    y15 = c15.SMA_100_15
+    y16 = c16.SMA_100_16
 
     ## Plots the data    
     ### Row 1
