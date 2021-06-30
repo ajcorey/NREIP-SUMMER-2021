@@ -99,7 +99,7 @@ try:
     ## Sets up layout of the plots
     frame1 = plt.gca()
     frame1.axes.get_xaxis().set_visible(False)
-    fig, axes = plt.subplots(2, 2, sharex = 'col', sharey = 'row')
+    fig, axes = plt.subplots(4, 4, sharex = 'col', sharey = 'row')
 
     
     ## Sets up variables for plotting
@@ -133,11 +133,11 @@ try:
     axes[0][1].legend()
     frame1 = plt.gca()
     frame1.axes.get_xaxis().set_visible(False)
-    axes[0][2].plot(x,y3, label='Channel 3')
+    axes[0][2].plot(x, y3, label='Channel 3')
     axes[0][2].legend()
     frame1 = plt.gca()
     frame1.axes.get_xaxis().set_visible(False)
-    axes[0][3].plot(x,y4, label='Channel 4')
+    axes[0][3].plot(x, y4, label='Channel 4')
     axes[0][3].legend()
     ### Row 2
     frame1 = plt.gca()
