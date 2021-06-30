@@ -99,7 +99,7 @@ try:
     ## Sets up layout of the plots
     frame1 = plt.gca()
     frame1.axes.get_xaxis().set_visible(False)
-    fig, axes = plt.subplots(4, 4, sharex = 'col', sharey = 'row')
+    fig, axes = plt.subplots(4, 4)
 
     
     ## Sets up variables for plotting
@@ -125,7 +125,7 @@ try:
     ### Row 1
     frame1 = plt.gca()
     frame1.axes.get_xaxis().set_visible(False)
-    axes[0][0].plot(x, y1, label='Channel 1')
+    axes[0][0].plot(x, y1)
     axes[0][0].legend()
     frame1 = plt.gca()
     frame1.axes.get_xaxis().set_visible(False)
@@ -192,6 +192,7 @@ try:
     axes[3][3].legend()
         
     # Save and Show the Graph
+    print('Saving PDF now!')
     plt.savefig((pdfFilename + '_AllChannels.pdf'), dpi = 1200)
     print('Graph .PDF Saved!')
     ## Commented out to save time, feel free to uncomment for interactive plot
