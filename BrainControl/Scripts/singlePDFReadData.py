@@ -98,8 +98,7 @@ try:
     
     ## Sets up layout of the plots
     fig, axes = plt.subplots(2, 2, sharex = 'col', sharey = 'row')
-    frame1 = plt.gca()
-    frame1.axes.get_xaxis().set_visible(False)
+
     
     ## Sets up variables for plotting
     x = df.Timestamp
@@ -122,17 +121,25 @@ try:
 
     ## Plots the data    
     ### Row 1
+        frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     axes[0][0].plot(x, y1, label='Channel 1')
     axes[0][0].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     axes[0][1].plot(x, y2, label='Channel 2')
     axes[0][1].legend()
     # axes[0][2].plot(x,y3, label='Channel 3')
     # axes[0][2].legend()
     # axes[0][3].plot(x,y4, label='Channel 4')
     # axes[0][3].legend()
-    ### Row 2    
+    ### Row 2
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     axes[1][0].plot(x, y5, label='Channel 5')
     axes[1][0].legend()
+    frame1 = plt.gca()
+    frame1.axes.get_xaxis().set_visible(False)
     axes[1][1].plot(x, y6, label='Channel 6')
     axes[1][1].legend()
     # axes[1][2].plot(x, y7, label='Channel 7')
