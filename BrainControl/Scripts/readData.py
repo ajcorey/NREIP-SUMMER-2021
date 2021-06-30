@@ -10,7 +10,7 @@
 # channels seperately.
 # License:
 # Software License Agreement (BSD License)
-# Find the full agreement at LINK
+# Find the full agreement at https://github.com/ajcorey/NREIP-SUMMER-2021/blob/main/LICENSE
 
 
 # Import the libraries that we need
