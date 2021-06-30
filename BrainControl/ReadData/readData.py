@@ -80,7 +80,7 @@ try:
     c16 = df[['Timestamp', 'SMA_100_16']]
     
     ## Sets up layout of the plots
-    fig, axes = plt.subplots(2,4, sharex = 'col', sharey = 'row')
+    fig, axes = plt.subplots(2, 2, sharex = 'col', sharey = 'row')
     
     ## Sets up variables for plotting
     x = df.Timestamp
@@ -107,19 +107,19 @@ try:
     axes[0][0].legend()
     axes[0][1].plot(x,y2, label='Channel 2')
     axes[0][1].legend()
-    axes[0][2].plot(x,y3, label='Channel 3')
-    axes[0][2].legend()
-    axes[0][3].plot(x,y4, label='Channel 4')
-    axes[0][3].legend()
+    # axes[0][2].plot(x,y3, label='Channel 3')
+    # axes[0][2].legend()
+    # axes[0][3].plot(x,y4, label='Channel 4')
+    # axes[0][3].legend()
     ### Row 2    
     axes[1][0].plot(x,y1, label='Channel 5')
     axes[1][0].legend()
     axes[1][1].plot(x,y2, label='Channel 6')
     axes[1][1].legend()
-    axes[1][2].plot(x,y3, label='Channel 7')
-    axes[1][2].legend()
-    axes[1][3].plot(x,y4, label='Channel 8')
-    axes[1][3].legend()
+    # axes[1][2].plot(x,y3, label='Channel 7')
+    # axes[1][2].legend()
+    # axes[1][3].plot(x,y4, label='Channel 8')
+    # axes[1][3].legend()
     # ### Row 3
     # axes[2][0].plot(x,y1, label='Channel 9')
     # axes[2][0].legend()
@@ -141,7 +141,7 @@ try:
         
     # Save and Show the Graph
     plt.savefig(graphFileName, dpi=600)
-    print('Graph .JPG Saved!')
+    print('Graph .PDF Saved!')
     #plt.show() # Commented out to save time, this takes a LONG time to show the graph of
 
 # Graceful exit
