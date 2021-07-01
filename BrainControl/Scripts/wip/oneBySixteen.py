@@ -19,8 +19,6 @@
 import os
 import pandas as pd
 from datetime import datetime
-import scipy as signal
-import numpy as np
 
 ## The next line is for if you are getting a message in the terminal
 ## about matplotlib and its cache, comment out the next line if needed
@@ -119,8 +117,8 @@ try:
     print('Now Plotting Data!')
 
     ## Sets up layout of the plots
-    fig, axes = plt.subplots(4, 4)
-    fig.suptitle('Data from All 16 Channels Displayed Left to Right')
+    fig, axes = plt.subplots(16, 1)
+    fig.suptitle('Data from All 16 Channels Displayed Top to Bottom')
 
     ## Sets up variables for plotting
     x = df.Timestamp
@@ -143,26 +141,22 @@ try:
     y16 = df.SMA_100_16
 
     ## Plots the data
-    ### Row 1
-    axes[0][0].plot(x, y01,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
-    axes[0][1].plot(x, y02,  label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
-    axes[0][2].plot(x, y03,  label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
-    axes[0][3].plot(x, y04,  label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
-    ### Row 2
-    axes[1][0].plot(x, y05,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
-    axes[1][1].plot(x, y06,  label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
-    axes[1][2].plot(x, y07,  label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
-    axes[1][3].plot(x, y08,  label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
-    ### Row 3
-    axes[2][0].plot(x, y09,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
-    axes[2][1].plot(x, y10, label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
-    axes[2][2].plot(x, y11, label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
-    axes[2][3].plot(x, y12, label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
-    ### Row 4
-    axes[3][0].plot(x, y13, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
-    axes[3][1].plot(x, y14, label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
-    axes[3][2].plot(x, y15, label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
-    axes[3][3].plot(x, y16, label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
+    axes[0].plot(x, y01,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[1].plot(x, y02,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[2].plot(x, y03,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[3].plot(x, y04,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[4].plot(x, y05,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[5].plot(x, y06,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[6].plot(x, y07,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[7].plot(x, y08,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[8].plot(x, y09,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[9].plot(x, y10, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[10].plot(x, y11, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[11].plot(x, y12, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[12].plot(x, y13, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[13].plot(x, y14, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[14].plot(x, y15, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[15].plot(x, y16, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
 
 
     # Save and Show the Plot
