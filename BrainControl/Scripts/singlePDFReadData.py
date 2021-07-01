@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# File Name:
+# singlePDFReadData.py
 # Author Information:
 # Andrew Sullivan
 # amsullivan2@wpi.edu
@@ -17,41 +19,67 @@
 import os
 import pandas as pd
 from datetime import datetime
+
 ## The next line is for if you are getting a message in the terminal
 ## about matplotlib and its cache, comment out the next line if needed
 os.environ['MPLCONFIGDIR'] = os.getcwd() + "/configs/"
 import matplotlib.pyplot as plt
 
-# Set up the filepaths for later
+
+# Ask the user for the file name
+print('Please ensure that the dataset file is in the Datasets/ directory')
+fileNameInput = input('Please Input the file name WITHOUT the file extension: ')
+
+
+# Set up the filepaths and for later
 filePath = os.path.dirname(os.path.abspath(__file__))
-os.makedirs(filePath + '/Outputs/', exist_ok = True)
+os.makedirs(filePath + '/Outputs/' + str(fileNameInput) + '/', exist_ok = True)
 inputFilePath = filePath + '/Datasets/'
-filePath = os.path.dirname(os.path.abspath(__file__)) + '/Outputs/'
+filePath = os.path.dirname(os.path.abspath(__file__)) + '/Outputs/' + str(fileNameInput) + '/'
+
+
+# Set variable for the filename to make changing easier later on
+bciFileName = str(fileNameInput)
+outputCSVFileName = filePath + bciFileName + 'Output.csv'
+pdfFileName = filePath + bciFileName
+
+
+# Convert the file from .TXT to .CSV if needed
+continueFlag = True
+while continueFlag:
+    print('Does this file need to be converted from .TXT to .CSV?')
+    needsConversion = input('Y/N: ')
+    needsConversion = str(needsConversion.upper())
+    if needsConversion == 'Y' or needsConversion == 'YES':
+        csvFileName = inputFilePath + bciFileName + '.txt'
+        tempName = inputFilePath + bciFileName + '.csv'
+        os.rename(csvFileName, tempName)
+        csvFileName = inputFilePath + bciFileName + '.csv'
+        print('File converted successfully!')
+        continueFlag = False
+
+    elif needsConversion == 'N' or needsConversion == 'NO':
+        csvFileName = inputFilePath + bciFileName + '.csv'
+        print('File will not be converted!')
+        continueFlag = False
+
+    else:
+        print('Invalid option, please try again!')
+        print()
 
 
 # Try loop that allows for a graceful exit if needed
 try:
-    # Ask the user for the file name
-    fileNameInput = input('Please Input the File Name WITHOUT the File Extension: ') # Ask user for mission command
-    
-
-    # Set variable for the filename to make changing easier later on
-    bciFileName = str(fileNameInput)
-    csvFileName = inputFilePath + bciFileName + '.csv'
-    outputCSVFileName = filePath + bciFileName + 'Output.csv'
-    pdfFileName = filePath + bciFileName
-
-    
     # Make the DataFrame, read the .CSV, and skip the header and information rows
     df = pd.read_csv(csvFileName, skiprows = 5, header = None)
 
-    
+
     # Delete unnecessary columns and rename the remaining ones
     df = df.drop(df.index[17:32], axis = 1)
     df = df.drop(df.columns[[0]], axis = 1)
-    df.columns = ['Channel1', 'Channel2', 'Channel3', 'Channel4', 'Channel5', 'Channel6', 'Channel7', 'Channel8', 'Channel9', 'Channel10', 'Channel11', 'Channel12', 'Channel13', 'Channel14', 'Channel15', 'Channel16', 'Timestamp']
+    df.columns = ['Channel01', 'Channel02', 'Channel03', 'Channel04', 'Channel05', 'Channel06', 'Channel07', 'Channel08', 'Channel09', 'Channel10', 'Channel11', 'Channel12', 'Channel13', 'Channel14', 'Channel15', 'Channel16', 'Timestamp']
 
-    
+
     # Convert the formatted timestamp to UNIX
     print('Converting Timestamps!')
     for i in range(0, len(df)):
@@ -59,18 +87,18 @@ try:
         unixDate = datetime.strptime(formattedDate, ' %Y-%m-%d %H:%M:%S.%f').strftime("%s.%f")[:-3]
         df.iat[i, 16] = unixDate
 
-    
+
     # Clean the data with a Simple Moving Average (SMA) with a window of 100
     print('Cleaning Data!')
-    df['SMA_100_1'] = df.iloc[:,0].rolling(window=100).mean()
-    df['SMA_100_2'] = df.iloc[:,1].rolling(window=100).mean()
-    df['SMA_100_3'] = df.iloc[:,2].rolling(window=100).mean()
-    df['SMA_100_4'] = df.iloc[:,3].rolling(window=100).mean()
-    df['SMA_100_5'] = df.iloc[:,4].rolling(window=100).mean()
-    df['SMA_100_6'] = df.iloc[:,5].rolling(window=100).mean()
-    df['SMA_100_7'] = df.iloc[:,6].rolling(window=100).mean()
-    df['SMA_100_8'] = df.iloc[:,7].rolling(window=100).mean()
-    df['SMA_100_9'] = df.iloc[:,8].rolling(window=100).mean()
+    df['SMA_100_01'] = df.iloc[:,0].rolling(window=100).mean()
+    df['SMA_100_02'] = df.iloc[:,1].rolling(window=100).mean()
+    df['SMA_100_03'] = df.iloc[:,2].rolling(window=100).mean()
+    df['SMA_100_04'] = df.iloc[:,3].rolling(window=100).mean()
+    df['SMA_100_05'] = df.iloc[:,4].rolling(window=100).mean()
+    df['SMA_100_06'] = df.iloc[:,5].rolling(window=100).mean()
+    df['SMA_100_07'] = df.iloc[:,6].rolling(window=100).mean()
+    df['SMA_100_08'] = df.iloc[:,7].rolling(window=100).mean()
+    df['SMA_100_09'] = df.iloc[:,8].rolling(window=100).mean()
     df['SMA_100_10'] = df.iloc[:,9].rolling(window=100).mean()
     df['SMA_100_11'] = df.iloc[:,10].rolling(window=100).mean()
     df['SMA_100_12'] = df.iloc[:,11].rolling(window=100).mean()
@@ -79,32 +107,14 @@ try:
     df['SMA_100_15'] = df.iloc[:,14].rolling(window=100).mean()
     df['SMA_100_16'] = df.iloc[:,15].rolling(window=100).mean()
 
-    
+
     # Convert DataFrame to a .CSV
     df.to_csv(outputCSVFileName, index = False)
     print('Output .CSV Saved!')
 
-    
-    # Graph the data
-    print('Now Graphing Data!')
 
-    ## Sets up groupings for the subplots
-    c1 = df[['Timestamp', 'SMA_100_1']]
-    c2 = df[['Timestamp', 'SMA_100_2']]
-    c3 = df[['Timestamp', 'SMA_100_3']]
-    c4 = df[['Timestamp', 'SMA_100_4']]
-    c5 = df[['Timestamp', 'SMA_100_5']]
-    c6 = df[['Timestamp', 'SMA_100_6']]
-    c7 = df[['Timestamp', 'SMA_100_7']]
-    c8 = df[['Timestamp', 'SMA_100_8']]
-    c9 = df[['Timestamp', 'SMA_100_9']]
-    c10 = df[['Timestamp', 'SMA_100_10']]
-    c11 = df[['Timestamp', 'SMA_100_11']]
-    c12 = df[['Timestamp', 'SMA_100_12']]
-    c13 = df[['Timestamp', 'SMA_100_13']]
-    c14 = df[['Timestamp', 'SMA_100_14']]
-    c15 = df[['Timestamp', 'SMA_100_15']]
-    c16 = df[['Timestamp', 'SMA_100_16']]
+    # Plot the data
+    print('Now Plotting Data!')
 
     ## Sets up layout of the plots
     fig, axes = plt.subplots(4, 4)
@@ -112,50 +122,51 @@ try:
 
     ## Sets up variables for plotting
     x = df.Timestamp
-    y1 = c1.SMA_100_1
-    y2 = c2.SMA_100_2
-    y3 = c3.SMA_100_3
-    y4 = c4.SMA_100_4
-    y5 = c5.SMA_100_5
-    y6 = c6.SMA_100_6
-    y7 = c7.SMA_100_7
-    y8 = c8.SMA_100_8
-    y9 = c9.SMA_100_9
-    y10 = c10.SMA_100_10
-    y11 = c11.SMA_100_11
-    y12 = c12.SMA_100_12
-    y13 = c13.SMA_100_13
-    y14 = c14.SMA_100_14
-    y15 = c15.SMA_100_15
-    y16 = c16.SMA_100_16
+    y01 = df.SMA_100_01
+    y02 = df.SMA_100_02
+    y02 = df.SMA_100_02
+    y03 = df.SMA_100_03
+    y04 = df.SMA_100_04
+    y05 = df.SMA_100_05
+    y06 = df.SMA_100_06
+    y07 = df.SMA_100_07
+    y08 = df.SMA_100_08
+    y09 = df.SMA_100_09
+    y10 = df.SMA_100_10
+    y11 = df.SMA_100_11
+    y12 = df.SMA_100_12
+    y13 = df.SMA_100_13
+    y14 = df.SMA_100_14
+    y15 = df.SMA_100_15
+    y16 = df.SMA_100_16
 
     ## Plots the data
     ### Row 1
-    axes[0][0].plot(x, y1,  label = '_nolegend_', linewidth = 0.5, color = '#FF1B8D')
-    axes[0][1].plot(x, y2,  label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
-    axes[0][2].plot(x, y3,  label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
-    axes[0][3].plot(x, y4,  label = '_nolegend_', linewidth = 0.5, color = '#1BB3FF')
+    axes[0][0].plot(x, y01,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[0][1].plot(x, y02,  label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[0][2].plot(x, y03,  label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[0][3].plot(x, y04,  label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
     ### Row 2
-    axes[1][0].plot(x, y5,  label = '_nolegend_', linewidth = 0.5, color = '#FF1B8D')
-    axes[1][1].plot(x, y6,  label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
-    axes[1][2].plot(x, y7,  label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
-    axes[1][3].plot(x, y8,  label = '_nolegend_', linewidth = 0.5, color = '#1BB3FF')
+    axes[1][0].plot(x, y05,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[1][1].plot(x, y06,  label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[1][2].plot(x, y07,  label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[1][3].plot(x, y08,  label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
     ### Row 3
-    axes[2][0].plot(x, y9,  label = '_nolegend_', linewidth = 0.5, color = '#FF1B8D')
-    axes[2][1].plot(x, y10, label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
-    axes[2][2].plot(x, y11, label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
-    axes[2][3].plot(x, y12, label = '_nolegend_', linewidth = 0.5, color = '#1BB3FF')
+    axes[2][0].plot(x, y09,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[2][1].plot(x, y10, label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[2][2].plot(x, y11, label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[2][3].plot(x, y12, label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
     ### Row 4
-    axes[3][0].plot(x, y13, label = '_nolegend_', linewidth = 0.5, color = '#FF1B8D')
-    axes[3][1].plot(x, y14, label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
-    axes[3][2].plot(x, y15, label = '_nolegend_', linewidth = 0.5, color = '#FFDA00')
-    axes[3][3].plot(x, y16, label = '_nolegend_', linewidth = 0.5, color = '#1BB3FF')
+    axes[3][0].plot(x, y13, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
+    axes[3][1].plot(x, y14, label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[3][2].plot(x, y15, label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[3][3].plot(x, y16, label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
 
 
-    # Save and Show the Graph
+    # Save and Show the Plot
     plt.setp(axes, xticks=[], yticks=[])
-    plt.savefig((pdfFileName + '_AllChannels.pdf'), dpi = 2400)
-    print('Graph .PDF Saved!')
+    plt.savefig((pdfFileName + '_AllChannels.pdf'), dpi = 38400)
+    print('Plot .PDF Saved!')
     ## Commented out to save time, feel free to uncomment for interactive plot
     #plt.show()
 
