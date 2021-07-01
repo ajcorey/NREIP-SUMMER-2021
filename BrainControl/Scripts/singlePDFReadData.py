@@ -143,23 +143,23 @@ try:
     ## Plots the data
     ### Row 1
     axes[0][0].plot(x, y01,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
-    axes[0][1].plot(x, y02,  label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
-    axes[0][2].plot(x, y03,  label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[0][1].plot(x, y02,  label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
+    axes[0][2].plot(x, y03,  label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
     axes[0][3].plot(x, y04,  label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
     ### Row 2
     axes[1][0].plot(x, y05,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
-    axes[1][1].plot(x, y06,  label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
-    axes[1][2].plot(x, y07,  label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[1][1].plot(x, y06,  label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
+    axes[1][2].plot(x, y07,  label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
     axes[1][3].plot(x, y08,  label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
     ### Row 3
     axes[2][0].plot(x, y09,  label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
-    axes[2][1].plot(x, y10, label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
-    axes[2][2].plot(x, y11, label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[2][1].plot(x, y10, label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
+    axes[2][2].plot(x, y11, label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
     axes[2][3].plot(x, y12, label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
     ### Row 4
     axes[3][0].plot(x, y13, label = '_nolegend_', linewidth = 0.1, color = '#FF1B8D')
-    axes[3][1].plot(x, y14, label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
-    axes[3][2].plot(x, y15, label = '_nolegend_', linewidth = 0.1, color = '#FFDA00')
+    axes[3][1].plot(x, y14, label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
+    axes[3][2].plot(x, y15, label = '_nolegend_', linewidth = 0.1, color = '#9b8507')
     axes[3][3].plot(x, y16, label = '_nolegend_', linewidth = 0.1, color = '#1BB3FF')
 
 
