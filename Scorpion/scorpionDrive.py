@@ -39,7 +39,8 @@ def stop():
   #GPIO.output(leftPWM, GPIO.LOW)
 
 def forward(timeToSleep):
-  pwmR.start(55)
+  for i in range(50, 100, 5):
+    pwmR.start(i)
   #pwmL.start(55)
   #GPIO.output(dir1, GPIO.HIGH)
   #GPIO.output(pwm1, GPIO.HIGH)
@@ -49,7 +50,8 @@ def forward(timeToSleep):
   stop()
 
 def reverse(timeToSleep):
-  pwmR.start(50)
+  for i in range(50, 0, -5):
+    pwmR.start(i)
   #pwmL.start(45)
   #GPIO.output(dir1, GPIO.LOW)
   #GPIO.output(pwm1, GPIO.HIGH)
