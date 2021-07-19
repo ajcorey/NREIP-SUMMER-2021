@@ -47,7 +47,7 @@ def forward(timeToSleep):
   #GPIO.output(pwm1, GPIO.HIGH)
   #GPIO.output(dir2, GPIO.HIGH)
   #GPIO.output(pwm2, GPIO.HIGH)
-  time.sleep(timeToSleep)
+  print("forwarded")
   stop()
 
 def reverse(timeToSleep):
@@ -59,14 +59,14 @@ def reverse(timeToSleep):
   #GPIO.output(pwm1, GPIO.HIGH)
   #GPIO.output(dir2, GPIO.LOW)
   #GPIO.output(pwm2, GPIO.HIGH)
-  time.sleep(timeToSleep)
+  print("reversed")
   stop()
 
-for i in range(2):
+for i in range(1):
   forward(timeForward)
-  time.sleep(timeOff)
+  #time.sleep(timeOff)
   reverse(timeReverse)
-  time.sleep(timeOff)
+  #time.sleep(timeOff)
 
 
 exit()
