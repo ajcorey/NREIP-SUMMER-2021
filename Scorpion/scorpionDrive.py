@@ -2,71 +2,63 @@
 
 import time
 import RPi.GPIO as GPIO
+from adafruit_blinka.board.raspberrypi.pico import LED
+import adafruit_pca9685
+import board
 
-GPIO.setmode(GPIO.BCM)
 
-#dir1 = 2
-#pwm1 = 3
-#dir2 = 4
-#pwm2 = 17
-rightPWM = 27
-leftPWM = 19
-freq = 350
-#center is pwm(50)
-#forward is pwmL(60+)
-#reverse is pwmL(40-)
-#forward is pwmR(40-)
-#reverse is pwmR(60+)
 
-timeForward = 3
-timeOff = 2
-timeReverse = 3
 
-GPIO.setup(rightPWM, GPIO.OUT)
-GPIO.setup(leftPWM,GPIO.OUT)
-#GPIO.setup(dir1, GPIO.OUT)
-#GPIO.setup(pwm1, GPIO.OUT)
-#GPIO.setup(dir2, GPIO.OUT)
-#GPIO.setup(pwm2, GPIO.OUT)
+# PWM Stuff
+#I2C address for the PWM driver board retrieved automatically
+i2c_pwm = board.I2C()
+pwm = adafruit_pca9685.PCA9685(i2c_pwm)
 
-pwmR = GPIO.PWM(rightPWM,freq)
-pwmL = GPIO.PWM(leftPWM,freq)
+pwm.frequency = 350
+
+#GPIO.setmode(GPIO.BCM)
+
+
+
+rightPWM = 0
+leftPWM = 2
+
+#Turn off warnings about pins being already configured
+#GPIO.setwarnings(False) 
+
+#GPIO.setup(rightPWM, GPIO.OUT)
+#GPIO.setup(leftPWM,GPIO.OUT)
+
+
 
 def stop():
-  pwmR.stop()
-  pwmL.stop()
-  #GPIO.output(rightPWM, GPIO.LOW)
-  #GPIO.output(leftPWM, GPIO.LOW)
+  #GPIO.output(,GPIO.HIGH)
+  #GPIO.output(BL2,GPIO.HIGH)
+  pwm.channels[rightPWM].duty_cycle = 0xFFFF
+  pwm.channels[leftPWM].duty_cycle = 0xFFFF
+  #GPIO.output(16,GPIO.HIGH)
 
 def forward(timeToSleep):
   for i in range(50, 100, 5):
-    pwmR.start(i)
+    pwm.channels[rightPWM].duty_cycle = abs(i)
     time.sleep(0.25)
-  #pwmL.start(55)
-  #GPIO.output(dir1, GPIO.HIGH)
-  #GPIO.output(pwm1, GPIO.HIGH)
-  #GPIO.output(dir2, GPIO.HIGH)
-  #GPIO.output(pwm2, GPIO.HIGH)
   print("forwarded")
   stop()
 
 def reverse(timeToSleep):
   for i in range(50, 0, -5):
-    pwmR.start(i)
+    pwm.channels[rightPWM].duty_cycle = abs(i)
     time.sleep(0.25)
-  #pwmL.start(45)
-  #GPIO.output(dir1, GPIO.LOW)
-  #GPIO.output(pwm1, GPIO.HIGH)
-  #GPIO.output(dir2, GPIO.LOW)
-  #GPIO.output(pwm2, GPIO.HIGH)
   print("reversed")
   stop()
 
-for i in range(1):
-  forward(timeForward)
-  #time.sleep(timeOff)
-  reverse(timeReverse)
-  #time.sleep(timeOff)
+# for i in range(1):
+#   # forward(2)
+#   # reverse(2)
+
+pwm.channels[rightPWM].duty_cycle = 0xFFFF
+time.sleep(5)
+pwm.channels[rightPWM].duty_cycle = 0x0000
 
 
 exit()
