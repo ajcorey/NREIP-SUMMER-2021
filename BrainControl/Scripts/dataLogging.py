@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # File Name:
-# multiPDFReadData.py
+# dataLogging.py
 # Author Information:
-# Andrew Sullivan
-# amsullivan2@wpi.edu
+# Drew Mulcare
+# drewmichael1227@gmail.com
 # July 8, 2021
 # Decription:
 # This program gets a live stream of data from the OpenBCI Cyton + Daisy Board,
