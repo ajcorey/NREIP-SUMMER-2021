@@ -3,7 +3,7 @@
 # dataLogging.py
 # Author Information:
 # Drew Mulcare
-# drewmichael1227@gmail.com
+# NREIP2021@mxdrew.com
 # July 8, 2021
 # Decription:
 # This program gets a live stream of data from the OpenBCI Cyton + Daisy Board,
